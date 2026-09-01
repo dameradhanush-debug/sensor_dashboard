@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Class Timetable</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:30px;
+}
+
+.container{
+    width:95%;
+    max-width:1400px;
+}
+
+h1{
+    text-align:center;
+    color:white;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+h3{
+    text-align:center;
+    color:#d6eaff;
+    margin-bottom:25px;
+    font-weight:400;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+
+th{
+    background:#1f2937;
+    color:white;
+    padding:18px;
+    font-size:17px;
+}
+
+td{
+    padding:18px;
+    text-align:center;
+    color:white;
+    font-weight:bold;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+tr:nth-child(even){
+    background:rgba(255,255,255,.05);
+}
+
+tr:hover{
+    background:rgba(255,255,255,.12);
+    transition:.3s;
+}
+
+.day{
+    background:#0d47a1;
+}
+
+.break{
+    background:#ff9800;
+    color:black;
+}
+
+.ml{
+    background:#42a5f5;
+}
+
+.sp{
+    background:#66bb6a;
+}
+
+.ac{
+    background:#ef5350;
+}
+
+.jp{
+    background:#ab47bc;
+}
+
+.fsd{
+    background:#fbc02d;
+    color:black;
+}
+
+footer{
+    text-align:center;
+    color:white;
+    margin-top:20px;
+    font-size:15px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>📚 Weekly Class Timetable</h1>
+<h3>Semester Study Schedule (Monday - Saturday)</h3>
+
+<table>
+
+<tr>
+<th>Day</th>
+<th>9:00 - 10:00</th>
+<th>10:00 - 11:00</th>
+<th>11:00 - 12:00</th>
+<th>12:00 - 1:00</th>
+<th>1:00 - 2:00</th>
+<th>2:00 - 3:00</th>
+<th>3:00 - 4:00</th>
+</tr>
+
+<tr>
+<td class="day">Monday</td>
+<td class="ml">Machine Learning</td>
+<td class="sp">Signal Processing</td>
+<td class="ac">Analog Circuit</td>
+<td class="break">🍴 Lunch</td>
+<td class="fsd">Full Stack Web Dev</td>
+<td class="jp">Japanese</td>
+<td class="ml">Machine Learning Lab</td>
+</tr>
+
+<tr>
+<td class="day">Tuesday</td>
+<td class="fsd">Full Stack Web Dev</td>
+<td class="ml">Machine Learning</td>
+<td class="jp">Japanese</td>
+<td class="break">🍴 Lunch</td>
+<td class="sp">Signal Processing</td>
+<td class="ac">Analog Circuit</td>
+<td class="fsd">Practical</td>
+</tr>
+
+<tr>
+<td class="day">Wednesday</td>
+<td class="ac">Analog Circuit</td>
+<td class="sp">Signal Processing</td>
+<td class="ml">Machine Learning</td>
+<td class="break">🍴 Lunch</td>
+<td class="jp">Japanese</td>
+<td class="fsd">Full Stack Web Dev</td>
+<td class="sp">Tutorial</td>
+</tr>
+
+<tr>
+<td class="day">Thursday</td>
+<td class="jp">Japanese</td>
+<td class="ml">Machine Learning</td>
+<td class="fsd">Full Stack Web Dev</td>
+<td class="break">🍴 Lunch</td>
+<td class="ac">Analog Circuit</td>
+<td class="sp">Signal Processing</td>
+<td class="ml">Revision</td>
+</tr>
+
+<tr>
+<td class="day">Friday</td>
+<td class="sp">Signal Processing</td>
+<td class="ac">Analog Circuit</td>
+<td class="ml">Machine Learning</td>
+<td class="break">🍴 Lunch</td>
+<td class="fsd">Full Stack Web Dev</td>
+<td class="jp">Japanese</td>
+<td class="ac">Circuit Lab</td>
+</tr>
+
+<tr>
+<td class="day">Saturday</td>
+<td class="ml">Machine Learning</td>
+<td class="jp">Japanese</td>
+<td class="sp">Signal Processing</td>
+<td class="break">🍴 Lunch</td>
+<td class="fsd">Mini Project</td>
+<td class="ac">Analog Circuit</td>
+<td class="ml">Weekly Revision</td>
+</tr>
+
+</table>
+
+<footer>
+✨ Stay Consistent • Learn Every Day • Success Follows ✨
+</footer>
+
+</div>
+
+</body>
+</html>

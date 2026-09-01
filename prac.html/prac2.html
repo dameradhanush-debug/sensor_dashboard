@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Background Image, Audio and Video</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80") center / cover;
+		}
+
+		main {
+			max-width: 700px;
+			margin: 30px auto;
+			padding: 20px;
+			background: white;
+		}
+
+		video, audio {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Nature Media</h1>
+		<p>This page displays a background image, an audio player, and a video player.</p>
+
+		<h2>Audio</h2>
+		<audio controls>
+			<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3" type="audio/mpeg">
+			Your browser does not support audio playback.
+		</audio>
+
+		<h2>Video</h2>
+		<video controls>
+			<source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+			Your browser does not support video playback.
+		</video>
+	</main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student ID Card</title>
+	<style>
+		body { font-family: Arial, sans-serif; background: #ddd; }
+		.card {
+			width: min(420px, 90vw);
+			height: 600px;
+			margin: 50px auto;
+			padding: 24px;
+			background: white;
+			border: 1px solid #aaa;
+			border-radius: 12px;
+			position: relative;
+		}
+		.logo { width: 150px; height: 75px; object-fit: contain; }
+		.details { margin: 65px 0 0 170px; text-align: left; }
+		.name { font-size: 23px; font-weight: bold; white-space: nowrap; }
+		.details p { margin: 14px 0; font-size: 20px; }
+		.authority { position: absolute; right: 24px; bottom: 22px; }
+		.authority::before { content: ""; display: block; width: 75px; border-top: 1px solid #222; margin-bottom: 5px; }
+	</style>
+</head>
+<body>
+	<div class="card">
+		<img class="logo" src="https://klh.edu.in/wp-content/uploads/2020/06/Lg.png" alt="KLH University logo">
+
+		<div class="details">
+			<div class="name">DAMERA DHANUSH</div>
+			<p>ECE</p>
+			<p>2510040001</p>
+			<p>2025-2029</p>
+		</div>
+
+		<div class="authority">Issuing Authority</div>
+	</div>
+</body>
+</html>

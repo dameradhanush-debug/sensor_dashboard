@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SensorGrid Water Level Monitor</title>
+		<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<style>
+			:root { --ink: #172522; --muted: #657671; --paper: #f8faf7; --line: #d6e1dc; --teal: #087f72; --mint: #6ee1c7; --amber: #c47b20; --coral: #c34f4b; --serif: Georgia, serif; --mono: 'Courier New', monospace; }
+			* { box-sizing: border-box; }
+			body { margin: 0; min-width: 320px; color: var(--ink); font: 16px/1.45 'Trebuchet MS', sans-serif; background: radial-gradient(circle at 80% 0%, #dcece5, #f4f5ef 60%); }
+			.dashboard { max-width: 1120px; margin: auto; padding: 54px 48px 28px; }
+			header { display: flex; justify-content: space-between; gap: 30px; border-bottom: 1px solid var(--line); padding-bottom: 38px; }
+			.eyebrow, .connection, .label, .scale, footer { color: var(--teal); font: 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+			.eyebrow { margin: 0 0 18px; } h1 { max-width: 700px; margin: 0; font: 500 clamp(40px, 7vw, 76px)/.95 var(--serif); letter-spacing: -.04em; }
+			.intro { color: var(--muted); margin: 20px 0 0; } .connection { white-space: nowrap; padding-top: 5px; }
+			.connection span { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px #b9f2e4; }
+			.overview { display: grid; grid-template-columns: 1.65fr 1fr; gap: 16px; margin: 34px 0 16px; }
+			.level-panel, .status-panel, .sensor-card { padding: 28px; background: var(--paper); }
+			.level-panel { min-height: 250px; color: white; background: var(--ink); } .level-panel .label, .scale { color: #a6b7b2; }
+			.level-top, .scale, footer { display: flex; justify-content: space-between; gap: 15px; }
+			.level-value { display: flex; align-items: baseline; gap: 8px; margin: 40px 0 30px; } .level-value strong { font: 500 clamp(65px, 11vw, 125px)/.8 var(--serif); letter-spacing: -.07em; } .level-value span { color: var(--mint); font: 24px var(--mono); }
+			.track { height: 8px; background: #364540; } .fill { height: 100%; background: var(--mint); transition: width .5s ease; } .scale { margin-top: 10px; }
+			.status-panel { min-height: 250px; border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; } .status-panel .label { color: var(--muted); }
+			.large-status { margin: 18px 0 12px; font: 54px/1 var(--serif); } .low { color: var(--coral); } .normal { color: var(--teal); } .high { color: var(--amber); }
+			.status-panel p, .sensor-card p { color: var(--muted); margin: 0; font-size: 14px; }
+			.sensor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; } .sensor-card { min-height: 165px; border-top: 3px solid var(--teal); } .sensor-card.amber { border-color: var(--amber); } .sensor-card.coral { border-color: var(--coral); }
+			.card-heading { display: flex; align-items: center; gap: 9px; color: var(--muted); font: 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; } .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; } .badge { margin-left: auto; }
+			.reading { display: flex; align-items: baseline; gap: 8px; margin: 29px 0 12px; } .reading strong { font: 44px var(--serif); letter-spacing: -.05em; } .reading span { color: var(--muted); font: 14px var(--mono); }
+			footer { color: var(--muted); border-top: 1px solid var(--line); margin-top: 40px; padding-top: 18px; }
+			@media (max-width: 720px) { .dashboard { padding: 30px 20px 22px; } header, footer { flex-direction: column; gap: 20px; } .overview, .sensor-grid { grid-template-columns: 1fr; } }
+		</style>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+			const { useEffect, useState } = React;
+
+			function getStatus(level) {
+				if (level < 30) return 'LOW';
+				if (level <= 80) return 'NORMAL';
+				return 'HIGH';
+			}
+
+			function SensorCard({ label, value, unit, detail, status, accent = '' }) {
+				return <article className={`sensor-card ${accent}`}>
+					<div className="card-heading"><span className="dot" />{label}{status && <span className={`badge ${status.toLowerCase()}`}>{status}</span>}</div>
+					<div className="reading"><strong>{value}</strong><span>{unit}</span></div>
+					<p>{detail}</p>
+				</article>;
+			}
+
+			function App() {
+				const [waterLevel, setWaterLevel] = useState(62);
+
+				useEffect(() => {
+					const intervalId = setInterval(() => {
+						setWaterLevel(current => Math.min(96, Math.max(12, Number((current + Math.random() * 6 - 3).toFixed(1)))));
+					}, 1000);
+					return () => clearInterval(intervalId);
+				}, []);
+
+				const status = getStatus(waterLevel);
+				const distance = (100 - waterLevel).toFixed(1);
+				return <main className="dashboard">
+					<header><div><p className="eyebrow">SensorGrid / Field Node 01</p><h1>Water level monitoring</h1><p className="intro">Live telemetry from an ESP32 and HC-SR04 ultrasonic sensor.</p></div><div className="connection"><span />Simulation online</div></header>
+					<section className="overview" aria-label="Water level overview">
+						<div className="level-panel"><div className="level-top label"><span>Current tank level</span><span>Updated every 1s</span></div><div className="level-value"><strong>{waterLevel.toFixed(1)}</strong><span>%</span></div><div className="track"><div className="fill" style={{ width: `${waterLevel}%` }} /></div><div className="scale"><span>0% empty</span><span>100% full</span></div></div>
+						<div className="status-panel"><span className="label">System status</span><strong className={`large-status ${status.toLowerCase()}`}>{status}</strong><p>{status === 'LOW' ? 'Refill threshold reached.' : 'Within monitored operating range.'}</p></div>
+					</section>
+					<section className="sensor-grid" aria-label="Sensor readings">
+						<SensorCard label="Water level" value={waterLevel.toFixed(1)} unit="%" status={status} detail="Calculated tank fill percentage" />
+						<SensorCard label="Ultrasonic distance" value={distance} unit="cm" accent="amber" detail="HC-SR04 surface distance" />
+						<SensorCard label="Tank capacity" value="100" unit="cm" accent="coral" detail="Configured tank height" />
+					</section>
+					<footer><span>ESP32 / HC-SR04</span><span>Last sample: now</span></footer>
+				</main>;
+			}
+
+			ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+		</script>
+	</body>
+</html>

@@ -19,10 +19,6 @@
 
 const float TANK_HEIGHT = 100.0;
 
-// When water is 10 cm or less from sensor,
-// consider the tank FULL.
-const float FULL_LEVEL_DISTANCE = 10.0;
-
 // ===============================
 // SETUP
 // ===============================
@@ -131,26 +127,7 @@ void updateIndicators(float percentage, float distance)
 
     noTone(BUZZER_PIN);
 
-    // -------------------------------
-    // FULL TANK
-    // -------------------------------
-
-    if (distance <= FULL_LEVEL_DISTANCE)
-    {
-        digitalWrite(GREEN_LED, HIGH);
-
-        tone(BUZZER_PIN, 2000);
-
-        Serial.println("Status      : FULL");
-        Serial.println("ALERT       : WATER TANK IS FULL!");
-        Serial.println("BUZZER      : ON");
-    }
-
-    // -------------------------------
-    // HIGH
-    // -------------------------------
-
-    else if (percentage >= 70)
+    if (percentage > 80)
     {
         digitalWrite(GREEN_LED, HIGH);
 
@@ -158,15 +135,11 @@ void updateIndicators(float percentage, float distance)
         Serial.println("BUZZER      : OFF");
     }
 
-    // -------------------------------
-    // MEDIUM
-    // -------------------------------
-
-    else if (percentage >= 40)
+    else if (percentage >= 30)
     {
         digitalWrite(YELLOW_LED, HIGH);
 
-        Serial.println("Status      : MEDIUM");
+        Serial.println("Status      : NORMAL");
         Serial.println("BUZZER      : OFF");
     }
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website Architecture</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .box {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .architecture {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        .arrow {
+            font-size: 30px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>E-Commerce Website Architecture</h1>
+
+        <div class="box">
+            <h2>1. Frontend</h2>
+            <p>The frontend is the part of the website that users see and interact with.</p>
+
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+
+            <h3>Examples</h3>
+            <ul>
+                <li>Home Page</li>
+                <li>Product Page</li>
+                <li>Shopping Cart</li>
+                <li>Checkout Page</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>2. Backend</h2>
+            <p>The backend handles the business logic and processes requests from users.</p>
+
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>Node.js</li>
+                <li>Express.js</li>
+            </ul>
+
+            <h3>Functions</h3>
+            <ul>
+                <li>User Authentication</li>
+                <li>Product Management</li>
+                <li>Order Processing</li>
+                <li>Payment Processing</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>3. Database</h2>
+            <p>The database stores all important information of the application.</p>
+
+            <h3>Database Examples</h3>
+            <ul>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+                <li>PostgreSQL</li>
+            </ul>
+
+            <h3>Stored Data</h3>
+            <ul>
+                <li>Users</li>
+                <li>Products</li>
+                <li>Orders</li>
+                <li>Payments</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h2>Architecture Flow</h2>
+            <div class="architecture">
+                <p>USER</p>
+                <p class="arrow">↓</p>
+                <p>FRONTEND</p>
+                <p class="arrow">↓</p>
+                <p>BACKEND</p>
+                <p class="arrow">↓</p>
+                <p>DATABASE</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

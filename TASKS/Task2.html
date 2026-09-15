@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Full-Stack Web Architecture</title>
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+
+        h1 {
+            text-align: center;
+        }
+
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+
+        .flow {
+            text-align: center;
+            font-size: 18px;
+        }
+
+
+        .arrow {
+            font-size: 28px;
+            margin: 5px;
+        }
+
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eeeeee;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <h1>Full-Stack Web Architecture</h1>
+
+
+        <!-- Frontend -->
+
+        <div class="box">
+
+            <h2>1. Frontend</h2>
+
+            <p>
+                The frontend is responsible for
+                displaying information to the user.
+            </p>
+
+            <p>
+                Technologies:
+                HTML, CSS and JavaScript.
+            </p>
+
+        </div>
+
+
+        <!-- Backend -->
+
+        <div class="box">
+
+            <h2>2. Backend</h2>
+
+            <p>
+                The backend receives requests,
+                processes data and sends responses.
+            </p>
+
+            <p>
+                Example:
+                Node.js and Express.js.
+            </p>
+
+        </div>
+
+
+        <!-- Database -->
+
+        <div class="box">
+
+            <h2>3. Database</h2>
+
+            <p>
+                The database stores application data.
+            </p>
+
+            <p>
+                Examples:
+                MySQL, MongoDB and PostgreSQL.
+            </p>
+
+        </div>
+
+
+        <!-- HTTP Cycle -->
+
+        <div class="box">
+
+            <h2>HTTP Request-Response Cycle</h2>
+
+
+            <div class="flow">
+
+                <p>USER</p>
+
+                <p class="arrow">↓</p>
+
+                <p>BROWSER / FRONTEND</p>
+
+                <p class="arrow">↓</p>
+
+                <p>HTTP REQUEST</p>
+
+                <p class="arrow">↓</p>
+
+                <p>BACKEND SERVER</p>
+
+                <p class="arrow">↓</p>
+
+                <p>DATABASE</p>
+
+                <p class="arrow">↓</p>
+
+                <p>BACKEND SERVER</p>
+
+                <p class="arrow">↓</p>
+
+                <p>HTTP RESPONSE</p>
+
+                <p class="arrow">↓</p>
+
+                <p>FRONTEND</p>
+
+                <p class="arrow">↓</p>
+
+                <p>USER</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Demo -->
+
+        <div class="box">
+
+            <h2>Request-Response Demo</h2>
+
+            <p>
+                Click the button to simulate
+                an HTTP request and response.
+            </p>
+
+
+            <button id="requestButton">
+
+                Send Request
+
+            </button>
+
+
+            <div id="result">
+
+                Waiting for request...
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Get button
+        const requestButton =
+            document.getElementById("requestButton");
+
+
+        // Get result area
+        const result =
+            document.getElementById("result");
+
+
+        // Button click event
+        requestButton.addEventListener(
+            "click",
+            function () {
+
+
+                // Show request message
+                result.innerHTML =
+                    "HTTP Request sent to Backend Server...";
+
+
+                // Simulate server processing
+                setTimeout(
+                    function () {
+
+
+                        // Show response
+                        result.innerHTML =
+                            "HTTP Response received: Data loaded successfully!";
+
+
+                    },
+                    1500
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

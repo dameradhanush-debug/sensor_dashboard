@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #243447;
+            background-color: #f7f3ee;
+            margin: 0;
+        }
+
+        header {
+            background-color: #183b56;
+            color: white;
+            text-align: center;
+            padding: 60px 20px 35px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin: 0 0 8px;
+        }
+
+        header p {
+            color: #f4c95d;
+            font-size: 18px;
+            margin: 0 0 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #f4c95d;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 25px 20px;
+        }
+
+        section {
+            background-color: white;
+            margin: 22px 0;
+            padding: 30px;
+            border-left: 5px solid #f4c95d;
+            box-shadow: 0 4px 12px rgba(24, 59, 86, 0.08);
+        }
+
+        h2 {
+            color: #183b56;
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        h3 {
+            color: #287271;
+            margin-bottom: 8px;
+        }
+
+        #skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+        }
+
+        #skills li {
+            background-color: #e5f0ef;
+            color: #205c5b;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        article {
+            background-color: #faf8f4;
+            padding: 18px 20px;
+            margin: 15px 0;
+            border: 1px solid #e8dfd2;
+        }
+
+        article p {
+            margin-bottom: 0;
+        }
+
+        #contact p {
+            margin: 8px 0;
+        }
+
+        footer {
+            background-color: #183b56;
+            color: #dce8ed;
+            text-align: center;
+            padding: 18px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding-top: 40px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            section {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Damera Dhanush</h1>
+
+        <p>Student | Web Developer</p>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="#about">About</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+
+            <p>
+                I am a student interested in web development
+                and programming.
+            </p>
+        </section>
+
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>My Skills</h2>
+
+            <ul>
+                <li>HTML</li>
+
+                <li>CSS</li>
+
+                <li>JavaScript</li>
+
+                <li>Python</li>
+
+                <li>Java</li>
+            </ul>
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+
+            <article>
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    A personal portfolio website created
+                    using Semantic HTML5.
+                </p>
+            </article>
+
+            <article>
+                <h3>To-Do Application</h3>
+
+                <p>
+                    A To-Do application created using
+                    Vanilla JavaScript.
+                </p>
+            </article>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+
+            <p>Email: dhanush@gmail.com</p>
+
+            <p>Phone: +91 9182883200</p>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Damera Dhanush</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Personal portfolio of Damera Dhanush, an Electronics and Communication Engineering student.">
+	<title>Damera Dhanush | Personal Portfolio</title>
+	<style>
+		:root {
+			--ink: #edf3f5;
+			--muted: #aabac3;
+			--paper: #101b24;
+			--cream: #1b2b36;
+			--surface: #172732;
+			--teal: #f28b67;
+			--teal-dark: #0d5369;
+			--gold: #f4c15d;
+			--line: #30434e;
+			--shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--paper);
+			font-family: Georgia, "Times New Roman", serif;
+			line-height: 1.6;
+		}
+
+		a { color: inherit; }
+
+		.site-header {
+			border-bottom: 1px solid var(--line);
+			background: rgba(16, 27, 36, 0.96);
+		}
+
+		.header-inner, main, .site-footer-inner {
+			width: min(1120px, calc(100% - 40px));
+			margin: 0 auto;
+		}
+
+		.header-inner {
+			min-height: 76px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 24px;
+		}
+
+		.brand {
+			color: var(--teal-dark);
+			font-size: 1.15rem;
+			font-weight: bold;
+			letter-spacing: 0.04em;
+			text-decoration: none;
+		}
+
+		.brand span { color: var(--gold); }
+
+		nav ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 22px;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			font-family: Arial, sans-serif;
+			font-size: 0.82rem;
+			font-weight: bold;
+		}
+
+		nav a { text-decoration: none; }
+		nav a:hover, nav a:focus { color: var(--teal); }
+
+		.hero {
+			display: grid;
+			grid-template-columns: 1.25fr 0.75fr;
+			align-items: center;
+			gap: 64px;
+			min-height: 570px;
+			padding: 76px 0;
+		}
+
+		.eyebrow {
+			margin: 0 0 14px;
+			color: var(--teal);
+			font-family: Arial, sans-serif;
+			font-size: 0.76rem;
+			font-weight: bold;
+			letter-spacing: 0.16em;
+			text-transform: uppercase;
+		}
+
+		h1, h2, h3 { line-height: 1.1; }
+
+		h1 {
+			max-width: 700px;
+			margin: 0;
+			font-size: clamp(3.2rem, 8vw, 6.6rem);
+			letter-spacing: -0.04em;
+		}
+
+		h1 em { color: var(--teal); font-style: normal; }
+
+		.intro {
+			max-width: 600px;
+			margin: 24px 0 30px;
+			color: var(--muted);
+			font-size: 1.15rem;
+		}
+
+		.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+		.button {
+			display: inline-block;
+			padding: 12px 20px;
+			border: 1px solid var(--teal);
+			border-radius: 4px;
+			background: var(--teal);
+			color: #17212a;
+			font-family: Arial, sans-serif;
+			font-size: 0.78rem;
+			font-weight: bold;
+			letter-spacing: 0.08em;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+		.button.secondary { background: transparent; color: var(--teal); }
+		.button:hover, .button:focus { background: var(--gold); color: #17212a; }
+
+		.portrait-card {
+			padding: 16px;
+			background: var(--cream);
+			box-shadow: var(--shadow);
+			transform: rotate(2deg);
+		}
+
+		.portrait {
+			min-height: 350px;
+			display: grid;
+			place-items: center;
+			background: var(--teal-dark);
+			color: white;
+			text-align: center;
+		}
+
+		.portrait strong {
+			display: block;
+			font-size: 6rem;
+			line-height: 1;
+		}
+
+		.portrait small {
+			display: block;
+			margin-top: 12px;
+			font-family: Arial, sans-serif;
+			letter-spacing: 0.13em;
+			text-transform: uppercase;
+		}
+
+		.section {
+			padding: 82px 0;
+			border-top: 1px solid var(--line);
+		}
+
+		.section-heading {
+			display: flex;
+			align-items: end;
+			justify-content: space-between;
+			gap: 20px;
+			margin-bottom: 32px;
+		}
+
+		h2 { margin: 0; font-size: clamp(2.2rem, 5vw, 4rem); }
+		.section-heading p { max-width: 420px; margin: 0; color: var(--muted); }
+
+		.about-grid, .project-grid, .contact-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 20px;
+		}
+
+		.about-grid { grid-template-columns: 1.2fr 0.8fr; }
+
+		.panel, article {
+			padding: 26px;
+			border: 1px solid var(--line);
+			background: var(--surface);
+		}
+
+		.panel p { color: var(--muted); }
+
+		.facts { margin: 0; }
+		.facts div { padding: 13px 0; border-bottom: 1px solid var(--line); }
+		.facts div:last-child { border-bottom: 0; }
+		dt { color: var(--teal); font-family: Arial, sans-serif; font-size: 0.72rem; font-weight: bold; text-transform: uppercase; }
+		dd { margin: 3px 0 0; }
+
+		article { border-top: 4px solid var(--gold); }
+		article h3 { margin: 0 0 10px; font-size: 1.45rem; }
+		article p { color: var(--muted); }
+		.tags { color: var(--teal); font-family: Arial, sans-serif; font-size: 0.72rem; font-weight: bold; letter-spacing: 0.05em; text-transform: uppercase; }
+
+		.contact-grid { grid-template-columns: 1fr 1fr; align-items: stretch; }
+		.contact-card { background: var(--teal-dark); color: #f5fbfc; }
+		.contact-card p { color: #d5e4e1; }
+		.contact-card a { color: var(--gold); font-weight: bold; }
+		address { font-style: normal; line-height: 2; }
+
+		.site-footer { padding: 24px 0; background: #091219; color: #b9c7cd; font-family: Arial, sans-serif; font-size: 0.78rem; }
+		.site-footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+		@media (max-width: 760px) {
+			.header-inner { align-items: flex-start; flex-direction: column; padding: 20px 0; }
+			.hero, .about-grid, .project-grid, .contact-grid { grid-template-columns: 1fr; }
+			.hero { gap: 42px; padding: 62px 0; }
+			.portrait-card { max-width: 420px; }
+			.section-heading, .site-footer-inner { align-items: flex-start; flex-direction: column; }
+			nav ul { gap: 12px; }
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<div class="header-inner">
+			<a class="brand" href="#top"><span>/</span> DAMERA DHANUSH</a>
+			<nav aria-label="Primary navigation">
+				<ul>
+					<li><a href="#about">About</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="intro-title">
+			<div>
+				<p class="eyebrow">ECE student · builder · learner</p>
+				<h1 id="intro-title">Hello, I’m <em>Dhanush.</em></h1>
+				<p class="intro">I’m a second-year Electronics and Communication Engineering student who enjoys turning curious ideas into useful digital experiences and practical systems.</p>
+				<div class="actions">
+					<a class="button" href="#projects">View my work</a>
+					<a class="button secondary" href="#contact">Get in touch</a>
+				</div>
+			</div>
+			<aside class="portrait-card" aria-label="Dhanush profile card">
+				<div class="portrait">
+					<div>
+						<strong>DD</strong>
+						<small>Damera Dhanush</small>
+					</div>
+				</div>
+			</aside>
+		</section>
+
+		<section class="section" id="about" aria-labelledby="about-title">
+			<div class="section-heading">
+				<h2 id="about-title">A little about me</h2>
+				<p>Building a strong foundation in technology, design, and communication one project at a time.</p>
+			</div>
+			<div class="about-grid">
+				<div class="panel">
+					<p>I am currently studying Electronics and Communication Engineering. My interests sit between hardware and software: I like understanding how things work, designing clear interfaces, and learning by making.</p>
+					<p>Outside coursework, I spend time improving my web development skills and exploring projects that connect people with technology in simple, meaningful ways.</p>
+				</div>
+				<div class="panel">
+					<dl class="facts">
+						<div><dt>Education</dt><dd>B.Tech, ECE · 2nd Year</dd></div>
+						<div><dt>Section</dt><dd>Section 2</dd></div>
+						<div><dt>Location</dt><dd>Hyderabad, India</dd></div>
+						<div><dt>Focus</dt><dd>Web development and systems</dd></div>
+					</dl>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="projects" aria-labelledby="projects-title">
+			<div class="section-heading">
+				<h2 id="projects-title">Selected work</h2>
+				<p>A few areas where I am putting classroom knowledge into practice.</p>
+			</div>
+			<div class="project-grid">
+				<article>
+					<p class="tags">01 · Frontend</p>
+					<h3>Responsive web pages</h3>
+					<p>Creating accessible, mobile-friendly pages with semantic HTML, CSS, and thoughtful visual hierarchy.</p>
+				</article>
+				<article>
+					<p class="tags">02 · Electronics</p>
+					<h3>Embedded systems</h3>
+					<p>Exploring sensors, microcontrollers, and the relationship between physical signals and useful data.</p>
+				</article>
+				<article>
+					<p class="tags">03 · Learning</p>
+					<h3>Continuous practice</h3>
+					<p>Documenting experiments and building small projects to strengthen problem-solving and technical confidence.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="section" id="contact" aria-labelledby="contact-title">
+			<div class="section-heading">
+				<h2 id="contact-title">Let’s connect</h2>
+				<p>Have a project idea, question, or opportunity? I would be glad to hear from you.</p>
+			</div>
+			<div class="contact-grid">
+				<div class="panel contact-card">
+					<h3>Start a conversation</h3>
+					<p>The best way to reach me is by email. I am open to learning opportunities, collaboration, and interesting conversations about technology.</p>
+				</div>
+				<div class="panel">
+					<address>
+						<strong>Email</strong><br>
+						<a href="mailto:dhanush2510040001@gmail.com">dhanush2510040001@gmail.com</a><br><br>
+						<strong>Based in</strong><br>
+						Hyderabad, India
+					</address>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="site-footer-inner">
+			<span>© 2025 Damera Dhanush</span>
+			<span>Designed and built with semantic HTML5.</span>
+		</div>
+	</footer>
+</body>
+</html>
